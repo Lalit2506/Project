@@ -6,8 +6,8 @@ const TaskSchema = new mongoose.Schema({
         type: String,
         requrie: true
     },
-    details: {
-        type: String
+    date: {
+        type: date
     },
     status: {
         type: String,
