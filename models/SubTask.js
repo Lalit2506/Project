@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 
 //our schema
 const TaskSchema = new mongoose.Schema({
-    taskId: {
-        requrie: true
-    },
-        title: {
+    title: {
         type: String,
         requrie: true
     },
@@ -21,4 +18,4 @@ const TaskSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Task', TaskSchema);
+module.exports = mongoose.model('SubTask', TaskSchema);
