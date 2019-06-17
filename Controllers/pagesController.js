@@ -1,23 +1,7 @@
-const ToDo = require('../models/ToDo');
+exports.show = (req, res) => {
 
-exports.index =(req.res) => {
+    const path = (req.path === '/') ? `/home` : req.path;
+  
 
-}
-exports.show =(req.res) => {
-    
-}
-exports.new =(req.res) => {
-    
-}
-exports.update =(req.res) => {
-    
-}
-exports.create =(req.res) => {
-    
-}
-exports.edit =(req.res) => {
-    
-}
-exports.destroy =(req.res) => {
-    
-}
+    res.render(`pages${path}`); 
+  };
