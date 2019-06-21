@@ -1,7 +1,11 @@
 const task = require('../models/task');
 
-exports.index = (req, res) => {};
-exports.show = (req, res) => {};
+exports.index = (req, res) => {
+    
+};
+exports.show = (req, res) => {
+
+};
 exports.new =(req, res) => {
     
 }
