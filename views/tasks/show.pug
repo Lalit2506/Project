@@ -1,0 +1,8 @@
+block content
+  .container
+    header
+      h1= task.title
+      small= task.status.toLowerCase()
+
+    div
+      = task.details || "Your task is processing..."
