@@ -6,16 +6,17 @@ exports.index = (req, res) => {
     Task.find({
         author: req.session.userId
       })
-        .populate('author')
-        .then(tasks => {
-            res.render('tasks/index', {
-                tasks: tasks,
-                title: 'To do List'
+    .populate('author')
+    .then(tasks => {
+        res.render('tasks/index', {
+            tasks: tasks,
+            title: 'To do List'
         });
     })
-        .catch(err => {
-            req.flash('error', `ERROR: ${err}`);
-            res.redirect('/');
+    .catch(err => {
+        req.flash('error', `ERROR: ${err}`);
+        res.redirect('/');
+        console.log('error', `ERROR: ${err}`);
     });
 };
 exports.show = (req, res) => {

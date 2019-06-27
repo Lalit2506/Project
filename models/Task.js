@@ -14,6 +14,11 @@ const TaskSchema = new mongoose.Schema({
         type: String,
         enum:['Done', 'On-Going'],
         default:'On-Going'
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Author',
+        required: true
     }
 }, {
     timestamps: true
