@@ -1,91 +1,69 @@
+html,
 body {
-    background-image: url('../images/List.jpg'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: black
+  height: 100%;
+  width: 100%;
 }
 
-h1{
-   color: #3E9F26;
-   text-align: center;
-   font-size: 50px;
+/* Photo by Marco Molitor on Unsplash */
+.home {
+  background: url('/images/List.jpg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-  p {
-  font-size: 35px;
-  color: indianred;
-  }
+.home>h1 {
+  color: #fff;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  font-size: 5rem;
+}
 
-  article {
-    font-size: 20px;
-    color: white;
-    text-align: center;
-  }
+.content {
+  margin-top: 60px;
+}
 
-  a{
-    color: crimson;
-  }
+.container{
+ margin-top: 60px;
+}
 
-  a:hover{
-    color: purple;
-  }
+.destroy{
+  display: inline;
+}
 
-  .navbar {
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  .navbar a {
-    float: left;
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .dropdown {
-    float: left;
-    overflow: hidden;
-  }
-  
-  .dropdown .dropbtn {
-    font-size: 16px;  
-    border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit;
-    margin: 0;
-  }
-  
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: red;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+.destroy > input[type="submit"]{
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #007bbf;
+}
+
+.destroy:hover > input[type="submit"] {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+.flash {
+  margin-top: 60px;
+}
+
+.nav-destroy>input[type="submit"] {
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  background: none;
+  border: 0;
+  color: rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+@media (min-width: 992px) .nav-destroy> input[type="submit"] {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.nav-destroy:hover>input[type="submit"] {
+  color: rgba(0, 0, 0, 0.7);
+}
