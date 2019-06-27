@@ -20,6 +20,6 @@ block content
                             td
                                 a(href=`/tasks/${task.id}/edit`) edit
                                 = " | "
-                            form.destroy(action="/tasks/destroy", method="POST", onsubmit='return confirm("Are You Sure?")')
-                                input(type="hidden", name="id", value=task.id)
-                                input(type="submit", value="delete")
+                                form.destroy(action="/tasks/destroy", method="POST", onsubmit='return confirm("Are You Sure?")')
+                                    input(type="hidden", name="id", value=task.id)
+                                    input(type="submit", value="delete")
