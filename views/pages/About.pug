@@ -1,34 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> About </title>
-    </head>
-    <link href="css/style.css" rel= "stylesheet">
-    <body>
+extends ../layouts/main.pug
 
-      <div class="navbar">
-        <a href="Home">Home</a>
-        <a href="About">About</a>
-        <a href="Contact">Contact</a>
-        <div class="dropdown">
-          <button class="dropbtn">To Do 
-            <i class="button"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="/tasks">Tasks</a>
-            <a href="/tasks/new">New Tasks</a>
-            <a href="#">Link 3</a>
-          </div>
-        </div> 
-      </div>
-                  
-        <h1>
-      About Project
-        </h1>
+block content
+  h1#my-unique-id Group and Project Information
 
-        <p>
-       This project is based on the To do list. Here you can make the list of the things you want to do and delete them as soon as it is done. It is really useful app that will help you maintain your work balance.
-        </p>
-    
-    </body>
-</html>
+
+  p.intro-text(data-attr="my value") List for the task you want to do
+  p Get to know us.
+    ul
+      li Moe
+      li Noor
+      li Steven
+      li Lalit

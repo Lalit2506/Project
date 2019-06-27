@@ -1,35 +1,10 @@
-//- <!DOCTYPE html>
-//- <html>
-//-     <head>
-//-         <title> Contact </title>
-//-     </head>
-//-     <link href="css/style.css" rel= "stylesheet">
-//-     <body>
-//-       <div class="navbar">
-//-         <a href="Home">Home</a>
-//-         <a href="About">About</a>
-//-         <a href="Contact">Contact</a>
-//-         <div class="dropdown">
-//-           <button class="dropbtn">To Do 
-//-             <i class="button"></i>
-//-           </button>
-//-           <div class="dropdown-content">
-//-             <a href="/tasks">Tasks</a>
-//-             <a href="/tasks/new">New Tasks</a>
-//-             <a href="#">Link 3</a>
-//-           </div>
-//-         </div> 
-//-       </div>
-                  
-//-         <h1>
-//-       Contact Information
-//-         </h1>
-//-      <article>
-//-      Lalit: <a href = "mailto:Lalit.Sharma@georgianc.on.ca">Lalit.Sharma@georgianc.on.ca</a></br>
-//-      Moe: <a href = "mailto:200387536@georgianc.on.ca">200387536@georgianc.on.ca</a></br>
-//-      Noor: <a href = "mailto:Noor.Chaudhary@georgianc.on.ca">Noor.Chaudhary@georgianc.on.ca</a></br>
-//-      Steven: <a href = "mailto:Steven.Caird@georgianc.on.ca">Steven.Caird@georgianc.on.ca</a></br>
-//-     </article>
-    
-//-     </body>
-//- </html>
+extends ../layouts/main.pug
+
+block content
+  h1#my-unique-id Contact us  
+
+  p.intro-text(data-attr="my value") For contacting please email Us 
+  p For contacting Sexy Moe= 200387536@georgianc.on.ca
+  p For contacting Lalit= 200395019@georgianc.on.ca
+  p For contacting Noor= Noor.Chaudhary@georgianc.on.ca
+  p For contacting Steven= Stevencaird89@gmail.com
