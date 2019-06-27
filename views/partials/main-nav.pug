@@ -11,10 +11,10 @@ nav.navbar.fixed-top.navbar-expand-lg.navbar-light.bg-light
         a.nav-link(href='/About') About
       if isAuthenticated
         li.nav-item.dropdown
-          a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Blogs
+          a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Tasks
           .dropdown-menu
-            a.dropdown-item(href='/tasks') List
-            a.dropdown-item(href='/tasks/new') New To do List
+            a.dropdown-item(href='/tasks') Tasks
+            a.dropdown-item(href='/tasks/new') New Tasks
       if !isAuthenticated
         li.nav-item
           a.nav-link(href='/authors/new') Register
