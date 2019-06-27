@@ -2,10 +2,10 @@ const Task = require('../models/task');
 
 exports.index = (req, res) => {
     Task.find()
-    .then(blogs => {
+    .then(tasks => {
         res.render('tasks/index', {
             tasks: tasks,
-            title: 'Lists'
+            title: 'To do List'
         });
     })
     .catch(err => {
@@ -15,7 +15,7 @@ exports.index = (req, res) => {
 exports.show = (req, res) => {
     Task.findById(req.params.id)
     .then(task => {
-        res.render('blogs/show',{
+        res.render('tasks/show',{
             task: task,
             title: task.title
         });
@@ -44,8 +44,8 @@ exports.update =(req, res) => {
 };
 
 exports.new = ( req,res ) => {
-    res.render('blogs/new', {
-        title: 'New Blog Post'
+    res.render('tasks/new', {
+        title: 'New Tasks Post'
     });
 }
 exports.create =(req, res) => {
