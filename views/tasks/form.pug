@@ -9,7 +9,7 @@ form(action=(task ? "/tasks/update" : "/tasks"), method="POST")
     .form-group
         label Details
         textarea.form-control(name="task[details]")
-            = task ? task.content : null
+            = task ? task.details : null
 
     .form-group
         label Status

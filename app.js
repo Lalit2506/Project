@@ -29,6 +29,7 @@ app.use(bodyParser.urlencoded({
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+app.set('view engine' , 'pug');
 app.use('/css', express.static('assets/stylesheets'));
 app.use('/js', express.static('assets/javascripts'));
 app.use('/images', express.static('assets/images'));
