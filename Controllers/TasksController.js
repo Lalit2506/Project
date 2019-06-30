@@ -1,4 +1,4 @@
-const Task = require('../models/task');
+const Task = require('../models/Task');
 
 exports.index = (req, res) => {
     req.isAuthenticated();
