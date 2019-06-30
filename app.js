@@ -22,7 +22,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 app.use(cookieParser());
 app.use(session({
-  secret: (process.env.secret || 'boorakacha'),
+  secret: (process.env.secret || 'project'),
   cookie: {
     maxAge: 10800000
   },

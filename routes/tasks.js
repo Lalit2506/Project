@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const TasksController = require('../controllers/tasksController');
+const TasksController = require('../Controllers/TasksController');
 
 // Begin routes
 

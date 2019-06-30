@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 // Our controllers
-const PagesController = require('../controllers/pagesController');
+const PagesController = require('../Controllers/pagesController');
 
 // Create our routes
 router.get(`/`, PagesController.show);
