@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const AuthorsController = require('../controllers/authorsController');
+const AuthorsController = require('../Controllers/authorsController');
 
 // Begin routes
 

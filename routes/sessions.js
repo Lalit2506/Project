@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const SessionsController = require('../controllers/sessionsController');
+const SessionsController = require('../Controllers/sessionsController');
 
 // Begin routes
 
