@@ -16,13 +16,12 @@ const path = require('path');
 
 const app = express();
 
-
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
 app.use(cookieParser());
 app.use(session({
-  secret: (process.env.secret || 'project'),
+  secret: (process.env.secret || 'boorakacha'),
   cookie: {
     maxAge: 10800000
   },
@@ -38,7 +37,6 @@ app.use((req, res, next) => {
  next();
 })
 
-
 // Body Parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -47,33 +45,33 @@ app.use(bodyParser.urlencoded({
 }));
 // End Parser
 
-// Our views path
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine' , 'pug');
-app.use('/css', express.static('assets/stylesheets'));
-app.use('/js', express.static('assets/javascripts'));
-app.use('/images', express.static('assets/images'));
-
-
+// Our authentication helper
+const jwt = require('jsonwebtoken');
 const isAuthenticated = (req) => {
-  return req.session && req.session.userId;
+  const token = (req.cookies && req.cookies.token) || (req.body && req.body.token) || (req.query && req.query.token) || (req.headers && req.headers['x-access-token']);
+  if(req.session.userId) return true;
+
+  if (!token) return false;
+
+  jwt.verify(token, "bobthebuilder", (err, decoded) => {
+    if (err) return false;
+    return true;
+  })
 };
 app.use((req, res, next) => {
-  req.isAuthenticated = () => {
-    if (!isAuthenticated(req)) {
-      req.flash('error', `You are not permitted to do this action.`);
-      res.redirect('/');
-    }
-  }
-
-  res.locals.isAuthenticated = isAuthenticated(req);
+  req.isAuthenticated = () => isAuthenticated(req);
   next();
 });
-
+// End of our authentication helper
 
 // Our routes
 const routes = require('./routes.js');
-app.use('/', routes);
+app.use('/api', routes);
+
+//Handles any request that dont match the ones above
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+});
 
 const port = (process.env.PORT || 4000);
 app.listen(port, () => console.log(`Listening on ${port}`));
