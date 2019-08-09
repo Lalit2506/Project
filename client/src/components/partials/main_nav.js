@@ -11,7 +11,25 @@ function MainNav () {
           <li className="nav-item"><Link className="nav-link" to="/about">About</Link></li>
           <li className="nav-item"><Link className="nav-link" to="/contact">Contact</Link></li>
 
+          <li className="nav-item dropdown">
+            <a
+              className="nav-link dropdown-toggle" href="/" data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Tasks
+            </a>
 
+            <div className="dropdown-menu">
+              <Link className="dropdown-item" to="/tasks">
+                Tasks
+              </Link>
+              <Link className="dropdown-item" to="/tasks/new">
+                New Tasks
+              </Link>
+            </div>
+          </li>
           <li className="nav-item"><Link className="nav-link" to="/login">Login</Link></li> 
           <li className="nav-item"><Link className="nav-link" to="/register">Register</Link></li> 
           <li className="nav-item"><Link className="nav-link" to="/logout">Logout</Link></li> 

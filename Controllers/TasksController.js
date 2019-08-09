@@ -1,51 +1,24 @@
-const Task = require('../models/Task');
+const Task = require('../models/task');
 
 exports.index = (req, res) => {
-    req.isAuthenticated();
-
-    Task.find({
-        author: req.session.userId
-      })
-    .populate('author')
-    .then(tasks => {
-        res.render('tasks/index', {
-            tasks: tasks,
-            title: 'To do List'
-        });
-    })
-    .catch(err => {
-        req.flash('error', `ERROR: ${err}`);
-        res.redirect('/');
-        console.log('error', `ERROR: ${err}`);
-    });
+    Task.find()
+        
+        .populate('author')
+        .then(tasks => res.json(tasks))
+        .catch(err => res.status(404).send(err));
 };
 exports.show = (req, res) => {
-    req.isAuthenticated();
 
     Task.findOne({
         _id: req.params.id,
-        author: req.session.userId
     })
-    .then(task => {
-        res.render('tasks/show',{
-            task: task,
-            title: task.title
-        });
-    })
-    .catch(err => {
-        req.flash('error', `ERROR: ${err}`);
-        res.redirect('/');
-    });
+        
+        .then(task => res.json(blog))
+        .catch(err => res.status(401).send(err));
 };
-exports.new =(req, res) => {
-    req.isAuthenticated();
 
-    res.render('tasks/new', {
-        title: 'New Task Post'
-    });
-}
 exports.update =(req, res) => {
-    req.isAuthenticated();
+    if (!req.isAuthenticated()) return res.status(401).send({error: "sign in idget"});
 
     Task.updateOne({
         _id: req.body.id,
@@ -53,61 +26,35 @@ exports.update =(req, res) => {
     },req.body.task, {
         runValidators: true
     })
-    .then(()=> {
-        req.flash('success', 'The List was updated.');
-        res.redirect(`/tasks/${req.body.id}`);
-    })
-    .catch(err => {
-        req.flash('error', `ERROR: ${err}`);
-        res.redirect(`/tasks/${req.body.id}/edit`);
-    });
+        .then(()=> res.status(202).send({success: "your task is updated"}))
+        .catch(err => res.status(400).send(err));
 };
 
 exports.create =(req, res) => {
-    req.isAuthenticated();
+    if (!req.isAuthenticated()) return res.status(401).send({error: "sign in idget"});
 
     req.body.task.author = req.session.userId;
     Task.create(req.body.task)
-    .then(() => {
-        req.flash('success', 'New List was created successfully.');
-        res.redirect('/tasks');
-    })
-    .catch(err => {
-        req.flash('error', `ERROR: ${err}`);
-        res.redirect('/tasks/new')
-    });
+    .then(() => res.status(201).send({success: "Taks are created"}))
+    .catch(err => res.status(400).send(err));
 }
 exports.edit =(req, res) => {
-    req.isAuthenticated();
+    if (!req.isAuthenticated()) return res.status(401).send({error: "sign in idget"});
 
     Task.findOne({
         _id: req.params.id,
         author: req.session.userId
     })
-    .then(task => {
-        res.render('tasks/edit',{
-            task: task,
-            title: task.title
-        });
-    })
-    .catch(err => {
-        req.flash('error', `ERROR: ${err}`);
-        res.redirect('/');
-    });
+    .then(task => res.json(task))
+    .catch(err => res.status(400).send(err));
 }
 exports.destroy =(req, res) => {
-    req.isAuthenticated();
+    if (!req.isAuthenticated()) return res.status(401).send({error: "sign in idget"});
 
     Task.deleteOne({
         _id: req.body.id,
         author: req.session.userId
     })
-    .then(() => {
-        req.flash('success', 'The List was deleted.');
-        res.redirect('/tasks')
-    })
-    .catch(err => {
-        req.flash('error', `ERROR: ${err}`);
-        res.redirect(`/tasks`);
-    });
+    .then(() => res.status(202).send({success: "your task is deleted and may be completed"}))
+    .catch(err => res.status(401).send(err));
 }

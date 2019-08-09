@@ -4,15 +4,16 @@ const p = {
     color: 'Red',
     height: '50px',
     fontSize: '150%',
-    backgroundColor: 'yellow'
+    marginTop: '35px',
 }
 
 function Contact () {
     return (
-    <header>
+    <header className = "home">
     <br/>
     <br/>
     <h1> Contact Us </h1>
+    <br/>
     <div style = {p}>For Contacting Moe:<a href="mailto: 200387536@georgianc.on.ca">200387536@georgianc.on.ca</a></div>
     <div style = {p}>For Contacting Lalit: <a href="mailto: 200395019@georgianc.on.ca">200395019@georgianc.on.ca</a></div>
     <div style = {p}>For contacting Noor: <a href="mailto: Noor.Chaudhary@georgianc.on.ca">Noor.Chaudhary@georgianc.on.ca</a></div>

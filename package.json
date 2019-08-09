@@ -27,6 +27,7 @@
     "express-session": "^1.16.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.15",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "schematype": "0.0.7"
   }
 }

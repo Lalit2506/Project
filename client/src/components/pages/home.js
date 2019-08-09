@@ -6,7 +6,7 @@ return (
   <header className="home-cta">
       <br/>
       <br/>
-      <h1 style = {{color: 'Orange'}}>
+      <h1 style = {{color: 'Orange', fontSize: '400%'}}>
           To Do List
       <br/>
           <small style = {{color: 'blue'}}>You can create and look at the tasks you have to do </small>

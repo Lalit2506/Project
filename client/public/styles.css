@@ -1,0 +1,24 @@
+html,
+body,
+.App,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.home-cta {
+    background: url('./images/List.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.home {
+  background: url('./images/List.jpg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}

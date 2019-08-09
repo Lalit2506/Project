@@ -7,7 +7,6 @@ const TasksController = require('../Controllers/TasksController');
 router.get('/', TasksController.index);
 //router.get('/ongoing', TasksController.ongoing);
 //router.get('/finished', TasksController.finished);
-router.get('/new', TasksController.new);
 router.get('/:id', TasksController.show);
 router.get('/:id/edit', TasksController.edit);
 router.post('/', TasksController.create);

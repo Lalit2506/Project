@@ -7,8 +7,9 @@ exports.authenticate = (req, res) => {
       })
       .then(author => {
         author.authenticate(req.body.password, (err, isMatch) => {
+          console.log(req.body)
           if (err) throw new Error(err);
-  
+          
           if (isMatch) {
             req.session.userId = author.id;
   
@@ -28,7 +29,7 @@ exports.authenticate = (req, res) => {
     if (!req.isAuthenticated()) res.status(401).send({error: "Could not authenticate"});
 
     req.session.userId = null;
-    res.clearCookie('Token').status(200).send({success: "You are now logged out"})
+    res.clearCookie('token').status(200).send({success: "You are now logged out"})
   };
 
 

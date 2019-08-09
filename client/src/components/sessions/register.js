@@ -10,14 +10,7 @@ function Register () {
         event.preventDefault();
 
         Axios.post("/api/authors", {
-            author: {
-                firstName: inputs.firstName,
-                lastName: inputs.lastName,
-                email: inputs.email,
-                password: inputs.password,
-                passwordConfirmation: inputs.passwordConfirmation,
-            }
-            //authors: inputs
+            authors: inputs
         })
         .then(resp => setRedirect(true))
         .catch(err => console.log(err));
