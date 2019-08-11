@@ -1,17 +1,36 @@
-import React, {useState} from "react";
+import React, {useState,  useContext} from "react";
 import {Redirect} from "react-router-dom";
 import Axios from "axios";
+import NotificationContext from "../notification_context"
 
 function Login () {
     const[inputs, setInputs] = useState({});
     const[redirect, setRedirect] = useState(false);
+    const {setNotification} = useContext(NotificationContext);
 
     function handleSubmit (event) {
         event.preventDefault();
 
         Axios.post("/api/authenticate", inputs)
-        .then(resp => setRedirect(true))
-        .catch(err => console.log(err));
+        .then(resp => {
+          setNotification(notification => {
+            return{
+              ...notification,
+              status: "success",
+              message: "You have logged in"
+            };
+          });
+          setRedirect(true)
+        })
+        .catch(err => {
+          setNotification(notification => {
+            return{
+              ...notification,
+              status: "danger",
+              message: "Fuck off"
+            };
+          });
+        });
     }
 
     function handleInputChange (event) {
