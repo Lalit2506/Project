@@ -7,9 +7,15 @@ import Contact from "./pages/contact";
 
 import TaskNew from "./tasks/new";
 import TaskIndex from "./tasks/index";
-import TaskShow from "./tasks/show";
-import TaskEdit from "./tasks/edit"
-import TaskDestroy from "./tasks/destroy"
+import TaskShow from "./subtasks/show";
+import TaskEdit from "./subtasks/edit"
+import TaskDestroy from "./subtasks/destroy"
+
+import SubTaskNew from "./subtasks/new";
+import SubTaskIndex from "./subtasks/index";
+import SubTaskShow from "./tasks/show";
+import SubTaskEdit from "./tasks/edit"
+import SubTaskDestroy from "./tasks/destroy"
 
 import Register from "./sessions/register";
 import Login from "./sessions/login";
@@ -27,6 +33,11 @@ function Routes () {
             <Route exact path="/tasks/:id" component = {TaskShow}/>
             <Route exact path="/tasks/:id/edit" component = {TaskEdit}/>
             <Route exact path="/tasks/:id/destroy" component = {TaskDestroy}/>
+            <Route exact path="/tasks/:id/subtasks/new" component = {SubTaskNew}/>
+            <Route exact path="/tasks/:id/subtasks" component = {SubTaskIndex}/>
+            <Route exact path="/tasks/:id/subtasks/:id" component = {SubTaskShow}/>
+            <Route exact path="/tasks/:id/subtasks/:id/edit" component = {SubTaskEdit}/>
+            <Route exact path="/tasks/:id/subtasks/:id/destroy" component = {SubTaskDestroy}/>
             <Route exact path="/register" component = {Register} />
             <Route exact path="/login" component = {Login} />  
             <Route exact path="/logout" component = {Logout} />

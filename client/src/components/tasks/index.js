@@ -8,8 +8,8 @@ function Index() {
         Axios.get("/api/tasks")
         .then(result => setTasks(result.data))
         .catch(err => console.error(err))
-    }, []);
-
+    }, []);console.log(tasks._id)
+    
     return (
         <div className="container">
             <header>
@@ -31,7 +31,7 @@ function Index() {
                     {tasks.map(task => (
                         <tr key={task._id}>
                             <td>
-                                <Link to={`/tasks/${task._id}`}>{task.title}</Link>
+                                <Link to={`/tasks/${task._id}/subtasks`}>{task.title}</Link>
                             </td>
                             <td>{task.status}</td>
                             <td>{task.author && task.author.firstName} {task.author && task.author.lastName}</td>
@@ -39,6 +39,8 @@ function Index() {
                                 <Link to = {`/tasks/${task._id}/edit`}>edit</Link>
                                 |
                                 <Link to = {`/tasks/${task._id}/destroy`}>delete</Link>
+                                |
+                                <Link to = {`/tasks/${task._id}/subtasks/new`}>Add</Link>
                             </td>
                         </tr>
                     ))}
